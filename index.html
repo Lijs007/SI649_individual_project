@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Mass Shooting</title>
+    <link rel="stylesheet" href="css/skeleton.css" />
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link href='https://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous"></script>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://d3js.org/topojson.v2.min.js"></script>
+    <script type="text/javascript" src="js/state.js"></script>
+    <script type="text/javascript" src="js/draw.js"></script>
+    <div class="container">
+        <div class="row centered">
+            <div class="six columns offset-by-three alpha">
+                <h1>Mass Shooting Map</h1>
+            </div>
+        </div>
+        <div class="row centered">
+            <div class="six columns offset-by-three alpha">
+                <p class="desc centered">This graph shows the occurence of mass shooting incidents.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="five columns offset-by-five alpha" style="margin-top:10px;">
+                <div class="row" id="yearfilter" style="position:fixed">
+                    <h3>Year</h3>
+                    <div class="button" data-val="2014">2014</div>
+                    <div class="button" data-val="2015">2015</div>
+                    <div class="button" data-val="2016">2016</div>
+                    <div class="button" data-val="2017">2017</div>
+                    <div class="button current" data-val="2018">2018</div>
+
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="five columns offset-by-five alpha" id="agegroup" style="margin-top:10px;">
+                <br/>
+                <br/>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="five columns offset-by-five alpha" id="koi" style="margin-top:10px;">
+                <h3>Killed or Injured:</h3>
+                <div class="button current" data-val="all">All</div>
+                <div class="button" data-val="killed">Killed</div>
+                <div class="button" data-val="injured">Injured</div>
+                <div class="button" data-val="issue">#Issue</div>
+            </div>
+        </div>
+      
+        <div class="row">
+            <div class="ten columns offset-by-three alpha" id="map">
+
+            </div>
+        </div>
+
+        <div class="row centered">
+            <h2 style="text-align: center">Possion Distribution:</h2>
+            <p>
+                The Poisson distribution is a discrete probability distribution that expresses the probability of a given number of events <br/>occurring in a fixed interval of time or space if these events occur with a known constant rate and independently of the time since the last event.
+            </p>
+            <p>
+                And this is the bar chart of number of incidents occured every week of the chosen year:
+            </p>
+        </div>
+
+
+
+        <div class="row">
+            <div class="ten columns offset-by-three alpha" id="bar1">
+
+            </div>
+        </div>
+
+        <div class="row centered">
+                <p>
+                    We cannot decide whether it follows a Possion Distribution through this graph.
+                </p>
+                <p>
+                    Actually, we prefre to use frequency plot to anaylize this distribution. Here's the plot of the number of weeks with specific incidence occured:
+                </p>
+        </div>
+
+        <div class="row">
+                <div class="ten columns offset-by-three alpha" id="bar2">
+    
+                </div>
+        </div>
+
+        <div class="row centered">
+                <p>
+                    It seems that it follows the Possion Distribution basicly. However, it's easy to see that the amout of data is not large enough.
+                </p>
+                <p>
+                    So let's try the data of all years(2014 ~ 2018 OCT). And the ideally expected result is plotted in blue:
+                </p>
+        </div>
+
+        <div class="row">
+                <div class="ten columns offset-by-three alpha" id="bar3">
+    
+                </div>
+        </div>
+
+        <div class="row">
+                <div class="ten columns offset-by-three alpha" id="bar4">
+    
+                </div>
+        </div>
+
+        <div class="row centered">
+                <p>
+                    We can see the two graphs are very similar.
+                </p>
+                <p>
+                    After test this with <a href = "https://en.wikipedia.org/wiki/Chi-squared_test" >chi-squared test</a>, we can say that the number of mass shooting incidents do follow the Possion Distribution.
+                </p>
+        </div>
+
+        
+
+    </div>
+
+</body>
+</html>
